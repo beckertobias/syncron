@@ -49,6 +49,7 @@
   "dependencies": {
     "crontab": "^1.4.0",
     "electron-compile": "^6.4.4",
+    "electron-prebuilt": "^1.4.13",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
