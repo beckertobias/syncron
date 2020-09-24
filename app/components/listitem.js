@@ -5,7 +5,7 @@ function ListItem (props) {
     <div>
       <p>name: {props.job.comment()}</p>
       <p>preview: {props.job.toString()}</p>
-      <p>hour: {props.job.hour}</p>
+      <p>hour: </p>
     </div>
   )
 }
