@@ -4,12 +4,16 @@ import { useForm } from 'react-hook-form';
 function Email (props) {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data)
+    const jobObj = {};
+    jobObj.command = `echo "${data.content}" | mail -s "${data.subject}" ${data.recipient}`
+    jobObj.comment = data.description;
+    props.addJob(jobObj);
   }
 
   return (
     <div className="email">
       <form onSubmit={handleSubmit(onSubmit)}>
+        <input name="description" ref={register} />
         <input name="subject" ref={register} />
         <input name="content" ref={register} />
         <input name="recipient" ref={register} />

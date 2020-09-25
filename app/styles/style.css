@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1516811575088-1de3bbf3563a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=2250&q=80")
+}
+
+.container {
+  margin-top: 7%;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding: 1.5%;
+  background-color: white;
+}

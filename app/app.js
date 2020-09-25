@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './components/home';
 import CreateJob from './components/createJob'
 import model from './model';
-import { HashRouter, Route, Switch } from 'react-router-dom'
-
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 function Application () {
   const [jobs, setJobs] = useState([]);
@@ -14,7 +13,7 @@ function Application () {
   }, [])
 
   function addJob (jobObj) {
-    model.addJob(jobObj.command, jobObj.time, jobObj.comment)
+    model.addJob(jobObj.command, '* * * * *', jobObj.comment);
   }
 
   return (
@@ -24,7 +23,7 @@ function Application () {
           <Route
             path='/createJob'
             render={(props) => (
-              <CreateJob {...props} addJob={addJob}/>
+              <CreateJob {...props} addJob={(jobObj) => addJob(jobObj)}/>
             )}
           />
           <Route

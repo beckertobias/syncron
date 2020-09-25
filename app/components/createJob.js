@@ -23,7 +23,7 @@ function CreateJob (props) {
     if (selectedJob.opt) {
       switch (selectedJob.opt.value) {
         case 'email':
-          jobType = <Email addJob={props.addJob} />;
+          jobType = <Email addJob={(jobObj) => props.addJob(jobObj)} />;
           break;
         case 'second-option':
           jobType = <SecondOption addJob={props.addJob} />
@@ -47,7 +47,11 @@ function CreateJob (props) {
       <div>
         {renderJobType()}
       </div>
-      <Link to='/'>Back to Home</Link>
+      <Link to='/'>
+        <button>
+        Back to Home
+        </button>
+      </Link>
     </div>
   )
 }
