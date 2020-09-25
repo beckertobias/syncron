@@ -9,9 +9,9 @@ function getJobs () {
   }).then((promJobs) => promJobs);
 }
 
-function addJob () {
+function addJob (command, time, comment) {
   crontab.load(function(err, crontab) {
-    const job = crontab.create('echo "test delete" >> /Users/tobiasbecker/Desktop/testing/test1.txt', '* * * * *', 'comment 1');
+    const job = crontab.create(command, time, comment);
     crontab.save(function(err, crontab) {
     });
   })

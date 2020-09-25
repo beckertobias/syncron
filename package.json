@@ -53,6 +53,7 @@
     "electron-squirrel-startup": "^1.0.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-hook-form": "^6.8.5",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.1.0"
   },

@@ -9,16 +9,24 @@ function Application () {
   const [jobs, setJobs] = useState([]);
 
   useEffect (() => {
-    // model.addJob()
     model.getJobs()
       .then((jobs) => setJobs(jobs))
   }, [])
+
+  function addJob (jobObj) {
+    model.addJob(jobObj.command, jobObj.time, jobObj.comment)
+  }
 
   return (
     <HashRouter>
       <div className="container">
         <Switch>
-          <Route path='/createJob' exact component={CreateJob}></Route>
+          <Route
+            path='/createJob'
+            render={(props) => (
+              <CreateJob {...props} addJob={addJob}/>
+            )}
+          />
           <Route
             path='/'
             render={(props) => (

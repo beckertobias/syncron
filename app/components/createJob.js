@@ -5,9 +5,8 @@ import Email from './jobTypes/email';
 import SecondOption from './jobTypes/secondOption';
 import ThirdOption from './jobTypes/thirdOption';
 
-function CreateJob () {
+function CreateJob (props) {
   const [selectedJob, setSelectedJob] = useState({});
-  let jobType;
 
   const options = [
     {value: 'email', label: 'Schedule Email', link: <Email />},
@@ -17,23 +16,11 @@ function CreateJob () {
 
   const handleChange = (opt) => {
     setSelectedJob({opt});
-    renderJobType();
   }
 
-  const renderJobType = () => {
-    switch (selectedJob.value) {
-      case 'email':
-        jobType = <Email />
-        break;
-      case 'second-option':
-        jobType = <SecondOption />
-        break;
-      case 'third-option':
-        jobType = <ThirdOption />
-        break;
-      default:
-        'stuff'
-    }}
+  const renderSelectedJob = () => {
+    return selectedJob.opt ? selectedJob.opt.link : ''
+  }
 
   return (
     <div className="select-type">
@@ -44,8 +31,7 @@ function CreateJob () {
         onChange={handleChange}
         options={options}/>
       <div>
-        {jobType}
-        {console.log(jobType)}
+        {renderSelectedJob()}
       </div>
       <Link to='/'>Back to Home</Link>
     </div>

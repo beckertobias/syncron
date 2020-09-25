@@ -3,7 +3,7 @@ import React from 'react';
 function SecondOption (props) {
   return (
     <div>
-      SecondOption
+      SecondOption Yo
     </div>
   )
 }
