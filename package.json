@@ -1,6 +1,6 @@
 {
-  "name": "clipmaster-fem-v2",
-  "productName": "clipmaster-fem-v2",
+  "name": "cronwizard",
+  "productName": "cronwizard",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "app/main.js",
@@ -47,6 +47,7 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "crontab": "^1.4.0",
     "electron-compile": "^6.4.4",
     "electron-prebuilt": "^1.4.13",

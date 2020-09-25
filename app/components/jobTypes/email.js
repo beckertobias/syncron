@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import TimePicker from '../timePicker/timepicker';
 
 function Email (props) {
   const { register, handleSubmit } = useForm();
@@ -19,6 +20,7 @@ function Email (props) {
         <input name="recipient" ref={register} />
         <button>Submit</button>
       </form>
+      <TimePicker />
     </div>
   )
 }

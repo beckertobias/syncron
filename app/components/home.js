@@ -1,14 +1,13 @@
 import React from 'react';
 import ListItem from './listitem';
-import { Link } from "react-router-dom"
-//mport logo from '../assets/sync-symbol.svg';
+import { Link } from "react-router-dom";
 
 function Home (props) {
   return (
     <div className="home">
       <nav className="nav">
-        {/* <img src={logo} alt="logo" className="logo"></img> */}
-        <p> Icon ? </p>
+        {/* <img src={require('./icon.png')} alt="logo" className="logo"></img> */}
+        <p> Icon </p>
         <p> Searchbar </p>
         <Link to="/createJob">
           <button>
@@ -16,10 +15,13 @@ function Home (props) {
           </button>
         </Link>
       </nav>
-      <div className="list-item-container">
+      <div className="overview-container">
+      <h1>Overview</h1>
+        <div className="list-item-container">
         {props.jobs.map((job) => (
           <ListItem key={job.comment()} job={job} />
         ))}
+        </div>
       </div>
     </div>
   )

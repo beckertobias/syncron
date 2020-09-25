@@ -2,8 +2,8 @@ import React from 'react';
 
 function ListItem (props) {
   return (
-    <div>
-      <p>name: {props.job.comment()}</p>
+    <div className="list-item">
+      <p id="comment">{props.job.comment()}</p>
       <p>preview: {props.job.toString()}</p>
       <p>hour: {}</p>
     </div>
