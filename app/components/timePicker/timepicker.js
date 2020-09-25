@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Minutes from './minutes';
 
 function TimePicker (props) {
-  //const [minute, setMinute] = useState('every');
+  const [time, setTime] = useState('every');
 
   return (
     <div className="time-picker">
