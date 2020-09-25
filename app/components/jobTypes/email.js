@@ -19,14 +19,15 @@ function Email (props) {
     subject: '',
     content: '',
     recipient: '',
-    time: {}
+    time: {
+      minutes: '',
+      hours: '',
+      days: '',
+      months: '',
+      weekday: '',
+    }
   });
 
-
-  const [description, setDescription] = useState('');
-  function handleChangeDescription (e) {
-    setDescription(e.target.value)
-  }
 
   const handleChange = (e) => {
     switch (e.target.id) {
@@ -62,7 +63,7 @@ function Email (props) {
           <TextField id="recipient" label="recipient" value={valueObj.recipient} onChange={handleChange} />
         </div>
       </form>
-      <TimePicker />
+      <TimePicker time={Object.assign({}, valueObj.time)} handleChange={handleChange} />
     </div>
   )
 }
