@@ -9,17 +9,31 @@ function CreateJob (props) {
   const [selectedJob, setSelectedJob] = useState({});
 
   const options = [
-    {value: 'email', label: 'Schedule Email', link: <Email />},
-    {value: 'second-option', label: 'Second Option', link: <SecondOption />},
-    {value: 'third-option', label: 'Third Option', link: <ThirdOption />}
+    {value: 'email', label: 'Schedule Email'},
+    {value: 'second-option', label: 'Second Option'},
+    {value: 'third-option', label: 'Third Option'}
   ]
 
   const handleChange = (opt) => {
     setSelectedJob({opt});
   }
 
-  const renderSelectedJob = () => {
-    return selectedJob.opt ? selectedJob.opt.link : ''
+  const renderJobType = () => {
+    let jobType = '';
+    if (selectedJob.opt) {
+      switch (selectedJob.opt.value) {
+        case 'email':
+          jobType = <Email addJob={props.addJob} />;
+          break;
+        case 'second-option':
+          jobType = <SecondOption addJob={props.addJob} />
+          break;
+        case 'third-option':
+          jobType = <ThirdOption addJob={props.addJob} />
+          break;
+      }
+    }
+    return jobType;
   }
 
   return (
@@ -31,7 +45,7 @@ function CreateJob (props) {
         onChange={handleChange}
         options={options}/>
       <div>
-        {renderSelectedJob()}
+        {renderJobType()}
       </div>
       <Link to='/'>Back to Home</Link>
     </div>
