@@ -13,7 +13,8 @@ function Application () {
   }, [])
 
   function addJob (jobObj) {
-    model.addJob(jobObj);
+    model.addJob(jobObj)
+      .then((jobs) => setJobs(jobs))
   }
 
   return (

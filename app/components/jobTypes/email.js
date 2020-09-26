@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import TimePicker from '../timePicker/timepicker';
+import TimePickerList from '../timePicker/timePickerList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,12 +19,16 @@ function Email (props) {
     subject: '',
     content: '',
     recipient: '',
-    minutes: '',
+    minutes: 'every',
     customMinutes: [],
-    hours: '',
-    days: '',
-    months: '',
-    weekday: '',
+    hours: 'every',
+    customHours: [],
+    days: 'every',
+    customDays: [],
+    months: 'every',
+    customMonths: [],
+    weekdays: 'every',
+    customWeekdays: []
   });
 
   const setValue = (key, value) => {
@@ -34,22 +38,49 @@ function Email (props) {
     let newForm;
     switch(key) {
       case 'description':
-        newForm = {description: value, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: value, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
         break;
       case 'subject':
-        newForm = {description: formValues.description, subject: value, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: formValues.description, subject: value, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
         break;
       case 'content':
-        newForm = {description: formValues.description, subject: formValues.subject, content: value, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: formValues.description, subject: formValues.subject, content: value, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
         break;
       case 'recipient':
-        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: value, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: value, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
         break;
       case 'minutes':
-        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: value, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: value, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
         break;
       case 'customMinutes':
-        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: value, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: value, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'hours':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: value, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'customHours':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: value, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'days':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: value, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'customDays':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: value, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'months':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: value, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'customMonths':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: value, weekdays: formValues.weekdays, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'weekdays':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: value, customWeekdays: formValues.customWeekdays}
+        break;
+      case 'customWeekdays':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, customHours: formValues.customHours, days: formValues.days, customDays: formValues.customDays, months: formValues.months, customMonths: formValues.customMonths, weekdays: formValues.weekdays, customWeekdays: value}
+        break;
+      default:
+        console.log('something went wrong')
         break;
     }
     setFormValues(newForm)
@@ -79,7 +110,7 @@ function Email (props) {
           <TextField id="recipient" label="recipient" value={formValues.recipient} onChange={handleChange} />
         </div>
       </form>
-      <TimePicker form={formValues} handler={setValue} />
+      <TimePickerList form={formValues} handler={setValue} />
       <button id="submit-button" onClick={handleSubmit}>Submit</button>
     </div>
   )
