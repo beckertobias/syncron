@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Email (props) {
   const classes = useStyles();
-  const [valueObj, setValueObj] = useState({
+  const [formValues, setFormValues] = useState({
     description: '',
     subject: '',
     content: '',
     recipient: '',
     minutes: '',
+    customMinutes: [],
     hours: '',
     days: '',
     months: '',
@@ -27,18 +28,43 @@ function Email (props) {
   });
 
   const setValue = (key, value) => {
-    setValueObj((objVal) => (Object.assign(objValue, {[key]: value})))
+    //Why does this not work?
+    console.log(formValues)
+    //setFormValues((formValues) => (Object.assign(formValues, {description: value})))
+    let newForm;
+    switch(key) {
+      case 'description':
+        newForm = {description: value, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+      case 'subject':
+        newForm = {description: formValues.description, subject: value, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+      case 'content':
+        newForm = {description: formValues.description, subject: formValues.subject, content: value, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+      case 'recipient':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: value, minutes: formValues.minutes, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+      case 'minutes':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: value, customMinutes: formValues.customMinutes, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+      case 'customMinutes':
+        newForm = {description: formValues.description, subject: formValues.subject, content: formValues.content, recipient: formValues.recipient, minutes: formValues.minutes, customMinutes: value, hours: formValues.hours, days: formValues.days, months: formValues.months, weekday: formValues.weekday}
+        break;
+    }
+    setFormValues(newForm)
   }
 
   const handleChange = (e) => {
+    console.log(e.target.id)
     setValue(e.target.id, e.target.value)
   };
 
   const handleSubmit = () => {
-    //get values from value Obj and put to jobObj. Alternatively just pass everything and handle in model.
-    const jobObj = {};
-    jobObj.command = `echo "${data.content}" | mail -s "${data.subject}" ${data.recipient}`
-    jobObj.comment = data.description;
+    //add email type to differentiate in model
+    const jobObj = Object.assign({}, formValues);
+    jobObj.type = 'email';
+    console.log('jobObj', jobObj)
     props.addJob(jobObj);
   }
 
@@ -47,13 +73,14 @@ function Email (props) {
       <h1>Input Email specs</h1>
       <form className={classes.root} noValidate autoComplete="off">
         <div>
-          <TextField id="description" label="description" value={valueObj.description} onChange={handleChange} />
-          <TextField id="subject" label="subject" value={valueObj.subject} onChange={handleChange} />
-          <TextField id="content" label="content" value={valueObj.content} onChange={handleChange} />
-          <TextField id="recipient" label="recipient" value={valueObj.recipient} onChange={handleChange} />
+          <TextField id="description" label="description" value={formValues.description} onChange={handleChange} />
+          <TextField id="subject" label="subject" value={formValues.subject} onChange={handleChange} />
+          <TextField id="content" label="content" value={formValues.content} onChange={handleChange} />
+          <TextField id="recipient" label="recipient" value={formValues.recipient} onChange={handleChange} />
         </div>
       </form>
-      <TimePicker time={valueObj.minutes} handleChange={setValue} />
+      <TimePicker form={formValues} handler={setValue} />
+      <button id="submit-button" onClick={handleSubmit}>Submit</button>
     </div>
   )
 }

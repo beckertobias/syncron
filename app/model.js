@@ -9,12 +9,13 @@ function getJobs () {
   }).then((promJobs) => promJobs);
 }
 
-function addJob (command, time, comment) {
-  crontab.load(function(err, crontab) {
-    const job = crontab.create(command, time, comment);
-    crontab.save(function(err, crontab) {
-    });
-  })
+function addJob (jobObj) {
+  console.log('from Model', jobObj.customMinutes.opt[0].value)
+  // crontab.load(function(err, crontab) {
+  //   const job = crontab.create(command, time, comment);
+  //   crontab.save(function(err, crontab) {
+  //   });
+  // })
 }
 
 module.exports = {

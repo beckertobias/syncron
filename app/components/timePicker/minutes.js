@@ -3,19 +3,14 @@ import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio }  from '@m
 import Select from 'react-select';
 
 function Minutes (props) {
-  //for default minutes
-  const [minute, setMinute] = useState('every');
 
   const handleChange = (e) => {
-    console.log(e.target.value)
-    setMinute(e.target.value);
+    props.handler('minutes', e.target.value)
   };
 
   //for custom minutes
-  const [customMinutes, setCustomMinutes] = useState({})
-
   const handleCustomChange = (opt) => {
-    setCustomMinutes({opt});
+    props.handler('customMinutes', {opt})
   }
 
   function createOptions () {
@@ -27,11 +22,12 @@ function Minutes (props) {
   }
 
   function showCustomMinutes () {
-    if (minute === 'custom') {
+    if (props.minutes === 'custom') {
       return (
         <Select
+          isMulti
           id="custom-minute-selector"
-          value={customMinutes.value}
+          value={props.customMinutes.value}
           onChange={handleCustomChange}
           options={createOptions()}
         />
@@ -46,7 +42,7 @@ function Minutes (props) {
         <div className="default-minutets">
           <FormControl component="fieldset">
           <FormLabel component="legend">Minutes</FormLabel>
-          <RadioGroup row aria-label="gender" name="gender1" value={minute} onChange={handleChange}>
+          <RadioGroup row aria-label="gender" name="gender1" value={props.minutes} onChange={handleChange}>
             <FormControlLabel value="every" control={<Radio />} label="Every Minute" />
             <FormControlLabel value="5" control={<Radio />} label="Every 5 Minutes" />
             <FormControlLabel value="15" control={<Radio />} label="Every 15 Minutes" />

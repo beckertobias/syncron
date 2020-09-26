@@ -64,11 +64,6 @@
     "babel-preset-react": "^6.24.1",
     "electron-forge": "^5.2.4",
     "electron-prebuilt-compile": "4.0.0",
-    "electron-reload": "^1.5.0",
-    "eslint": "^5",
-    "eslint-config-airbnb": "^17",
-    "eslint-plugin-import": "^2",
-    "eslint-plugin-jsx-a11y": "^6",
-    "eslint-plugin-react": "^7"
+    "electron-reload": "^1.5.0"
   }
 }

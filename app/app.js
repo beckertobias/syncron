@@ -13,7 +13,7 @@ function Application () {
   }, [])
 
   function addJob (jobObj) {
-    model.addJob(jobObj.command, '* * * * *', jobObj.comment);
+    model.addJob(jobObj);
   }
 
   return (
