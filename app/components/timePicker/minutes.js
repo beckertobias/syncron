@@ -7,6 +7,7 @@ function Minutes (props) {
   const [minute, setMinute] = useState('every');
 
   const handleChange = (e) => {
+    console.log(e.target.value)
     setMinute(e.target.value);
   };
 

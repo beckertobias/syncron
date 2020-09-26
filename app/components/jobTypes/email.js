@@ -19,29 +19,19 @@ function Email (props) {
     subject: '',
     content: '',
     recipient: '',
-    time: {
-      minutes: '',
-      hours: '',
-      days: '',
-      months: '',
-      weekday: '',
-    }
+    minutes: '',
+    hours: '',
+    days: '',
+    months: '',
+    weekday: '',
   });
 
+  const setValue = (key, value) => {
+    setValueObj((objVal) => (Object.assign(objValue, {[key]: value})))
+  }
 
   const handleChange = (e) => {
-    switch (e.target.id) {
-      case 'description':
-        setValueObj({description: e.target.value, subject: valueObj.subject, content: valueObj.content, recipient: valueObj.recipient, time: valueObj.time})
-        break;
-      case 'subject':
-        setValueObj({description: valueObj.description, subject: e.target.value, content: valueObj.content, recipient: valueObj.recipient, time: valueObj.time})
-        break;
-    }
-    // const newObj = Object.assign(valueObj, {[e.target.id]: e.target.value});
-    // console.log(newObj)
-    // setValueObj(newObj);
-    // console.log(valueObj);
+    setValue(e.target.id, e.target.value)
   };
 
   const handleSubmit = () => {
@@ -63,7 +53,7 @@ function Email (props) {
           <TextField id="recipient" label="recipient" value={valueObj.recipient} onChange={handleChange} />
         </div>
       </form>
-      <TimePicker time={Object.assign({}, valueObj.time)} handleChange={handleChange} />
+      <TimePicker time={valueObj.minutes} handleChange={setValue} />
     </div>
   )
 }
