@@ -3,6 +3,7 @@ import JobItem from './jobItem';
 import { Link } from "react-router-dom";
 
 function Overview (props) {
+
   return (
     <div className="home">
       <nav className="nav">

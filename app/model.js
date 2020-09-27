@@ -43,11 +43,9 @@ function addJob (jobObj) {
 }
 
 function convertTimes (jobObj) {
-  console.log('from MOdel', jobObj)
   const { minutes, customMinutes, hours, customHours, days, customDays, months, customMonths, weekdays, customWeekdays } = jobObj;
   const arr = [minutes, customMinutes, hours, customHours, days, customDays, months, customMonths, weekdays, customWeekdays ];
   let time = '';
-  console.log('customMinutes', typeof customMinutes)
 
   for (let i = 0; i < arr.length; i++) {
     //handle units
