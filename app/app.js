@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Home from './components/home';
+import Overview from './components/overview';
 import CreateJob from './components/createJob'
 import model from './model';
 import { HashRouter, Route, Switch } from 'react-router-dom';
@@ -17,9 +17,14 @@ function Application () {
       .then((jobs) => setJobs(jobs))
   }
 
+  function removeJob (jobObj) {
+    model.removeJob(jobObj)
+      .then((jobs => setJobs(jobs)))
+  }
+
   return (
     <HashRouter>
-      <div className="container">
+      <div className="app-container">
         <Switch>
           <Route
             path='/createJob'
@@ -30,7 +35,7 @@ function Application () {
           <Route
             path='/'
             render={(props) => (
-              <Home {...props} jobs={jobs}/>
+              <Overview {...props} jobs={jobs} removeJob={(jobObj) => removeJob(jobObj)}/>
             )}
           />
         </Switch>

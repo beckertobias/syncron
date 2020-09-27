@@ -1,8 +1,8 @@
 import React from 'react';
-import ListItem from './listitem';
+import JobItem from './jobItem';
 import { Link } from "react-router-dom";
 
-function Home (props) {
+function Overview (props) {
   return (
     <div className="home">
       <nav className="nav">
@@ -17,9 +17,9 @@ function Home (props) {
       </nav>
       <div className="overview-container">
       <h1>Overview</h1>
-        <div className="list-item-container">
+        <div className="job-item-container">
         {props.jobs.map((job) => (
-          <ListItem key={job.comment()} job={job} />
+          <JobItem key={job.comment()} job={job} removeJob={(jobObj) => props.removeJob(jobObj)} />
         ))}
         </div>
       </div>
@@ -27,4 +27,4 @@ function Home (props) {
   )
 }
 
-export default Home;
+export default Overview;

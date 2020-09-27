@@ -95,7 +95,6 @@ function Email (props) {
     //add email type to differentiate in model
     const jobObj = Object.assign({}, formValues);
     jobObj.type = 'email';
-    console.log('jobObj', jobObj)
     props.addJob(jobObj);
   }
 
