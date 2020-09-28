@@ -1,30 +1,9 @@
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import TimePickerList from '../timePicker/timePickerList';
-import Attachment from '../attachment.js';
-import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
-
-function Email(props) {
-  const classes = useStyles();
+function Screenshots(props) {
   const [formValues, setFormValues] = useState({
     description: '',
-    subject: '',
-    content: '',
-    recipient: '',
-    attachmentType: 'none',
-    attachmentLocation: '',
-    scriptLocation: '',
-    outputLocation: '',
     minutes: 'every',
     customMinutes: [],
     hours: 'every',
@@ -48,72 +27,6 @@ function Email(props) {
           subject: formValues.subject,
           content: formValues.content,
           recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'subject':
-        newForm = {
-          description: formValues.description,
-          subject: value,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'content':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: value,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'recipient':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: value,
           minutes: formValues.minutes,
           customMinutes: formValues.customMinutes,
           hours: formValues.hours,
@@ -350,152 +263,31 @@ function Email(props) {
           outputLocation: formValues.outputLocation,
         };
         break;
-      case 'attachmentType':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: value,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'attachmentLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: value,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'scriptLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: value,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'outputLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: value,
-        };
-        break;
       default:
-        console.log('something went wrong');
+        console.log(
+          'something went wrong - no key found in switch statement',
+        );
         break;
     }
     setFormValues(newForm);
   };
 
-  const handleChange = (e) => {
-    setValue(e.target.id, e.target.value);
-  };
-
   const handleSubmit = () => {
     //add email type to differentiate in model
     const jobObj = Object.assign({}, formValues);
-    jobObj.type = 'email';
+    jobObj.type = 'screenshots';
+    jobObj.description = 'Screenshot Organizer';
     props.addJob(jobObj);
   };
 
   return (
-    <div className="email">
-      <h2>Create your Email</h2>
-      <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <TextField
-            id="description"
-            label="description"
-            value={formValues.description}
-            onChange={handleChange}
-          />
-          <TextField
-            id="subject"
-            label="subject"
-            value={formValues.subject}
-            onChange={handleChange}
-          />
-          <TextField
-            id="content"
-            label="content"
-            value={formValues.content}
-            onChange={handleChange}
-          />
-          <TextField
-            id="recipient"
-            label="recipient"
-            value={formValues.recipient}
-            onChange={handleChange}
-          />
-        </div>
-      </form>
-      <Attachment form={formValues} handler={setValue} />
+    <div className="screenshots">
       <TimePickerList form={formValues} handler={setValue} />
-      <Link to="/">
-        <button id="submit-button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </Link>
+      <button id="submit-button" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }
 
-export default Email;
+export default Screenshots;

@@ -1,2 +1,36 @@
 @use 'main';
 
+.create-job-inputs {
+  background-color:	#F4F7FC;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.job-type-inputs {
+  margin-top: 3%;
+  * {
+    padding-top: .05%;
+    padding-bottom: .05%;
+  }
+}
+
+.time-picker-item-container {
+  margin-top: 1.5%;
+}
+
+.attachment-container {
+  margin-top: 1.5%;
+  h2 {
+    margin-bottom: 1.5%;
+  }
+}
+
+#submit-button {
+  background-color:	#FAFBFF;
+  padding: 0.5%;
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0 1.5px 3px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23);
+  font-family: 'Fira Sans', sans-serif;
+  cursor: pointer;
+}

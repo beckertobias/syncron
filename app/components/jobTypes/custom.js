@@ -1,30 +1,11 @@
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import TimePickerList from '../timePicker/timePickerList';
-import Attachment from '../attachment.js';
-import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
-
-function Email(props) {
-  const classes = useStyles();
+function Custom(props) {
   const [formValues, setFormValues] = useState({
     description: '',
-    subject: '',
-    content: '',
-    recipient: '',
-    attachmentType: 'none',
-    attachmentLocation: '',
-    scriptLocation: '',
-    outputLocation: '',
+    command: '',
     minutes: 'every',
     customMinutes: [],
     hours: 'every',
@@ -62,72 +43,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'subject':
-        newForm = {
-          description: formValues.description,
-          subject: value,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'content':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: value,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'recipient':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: value,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'minutes':
@@ -150,6 +66,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'customMinutes':
@@ -172,6 +89,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'hours':
@@ -194,6 +112,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'customHours':
@@ -216,6 +135,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'days':
@@ -238,6 +158,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'customDays':
@@ -260,6 +181,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'months':
@@ -282,6 +204,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'customMonths':
@@ -304,6 +227,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'weekdays':
@@ -326,6 +250,7 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
       case 'customWeekdays':
@@ -348,9 +273,10 @@ function Email(props) {
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
           outputLocation: formValues.outputLocation,
+          command: formValues.command,
         };
         break;
-      case 'attachmentType':
+      case 'command':
         newForm = {
           description: formValues.description,
           subject: formValues.subject,
@@ -365,137 +291,56 @@ function Email(props) {
           months: formValues.months,
           customMonths: formValues.customMonths,
           weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: value,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'attachmentLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: value,
-          scriptLocation: formValues.scriptLocation,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'scriptLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
-          attachmentType: formValues.attachmentType,
-          attachmentLocation: formValues.attachmentLocation,
-          scriptLocation: value,
-          outputLocation: formValues.outputLocation,
-        };
-        break;
-      case 'outputLocation':
-        newForm = {
-          description: formValues.description,
-          subject: formValues.subject,
-          content: formValues.content,
-          recipient: formValues.recipient,
-          minutes: formValues.minutes,
-          customMinutes: formValues.customMinutes,
-          hours: formValues.hours,
-          customHours: formValues.customHours,
-          days: formValues.days,
-          customDays: formValues.customDays,
-          months: formValues.months,
-          customMonths: formValues.customMonths,
-          weekdays: formValues.weekdays,
-          customWeekdays: formValues.customWeekdays,
+          customWeekdays: value,
           attachmentType: formValues.attachmentType,
           attachmentLocation: formValues.attachmentLocation,
           scriptLocation: formValues.scriptLocation,
-          outputLocation: value,
+          outputLocation: formValues.outputLocation,
+          command: value,
         };
         break;
       default:
-        console.log('something went wrong');
+        console.log(
+          'something went wrong - no key found in switch statement',
+        );
         break;
     }
     setFormValues(newForm);
+  };
+
+  const handleSubmit = () => {
+    //add email type to differentiate in model
+    const jobObj = Object.assign({}, formValues);
+    jobObj.type = 'custom';
+    props.addJob(jobObj);
   };
 
   const handleChange = (e) => {
     setValue(e.target.id, e.target.value);
   };
 
-  const handleSubmit = () => {
-    //add email type to differentiate in model
-    const jobObj = Object.assign({}, formValues);
-    jobObj.type = 'email';
-    props.addJob(jobObj);
-  };
-
   return (
-    <div className="email">
-      <h2>Create your Email</h2>
-      <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <TextField
-            id="description"
-            label="description"
-            value={formValues.description}
-            onChange={handleChange}
-          />
-          <TextField
-            id="subject"
-            label="subject"
-            value={formValues.subject}
-            onChange={handleChange}
-          />
-          <TextField
-            id="content"
-            label="content"
-            value={formValues.content}
-            onChange={handleChange}
-          />
-          <TextField
-            id="recipient"
-            label="recipient"
-            value={formValues.recipient}
-            onChange={handleChange}
-          />
-        </div>
-      </form>
-      <Attachment form={formValues} handler={setValue} />
+    <div className="custom-command">
+      <div className="custom-command-input">
+        <TextField
+          id="description"
+          label="Your Description"
+          value={formValues.description}
+          onChange={handleChange}
+        />
+        <TextField
+          id="command"
+          label="Your Command"
+          value={formValues.command}
+          onChange={handleChange}
+        />
+      </div>
       <TimePickerList form={formValues} handler={setValue} />
-      <Link to="/">
-        <button id="submit-button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </Link>
+      <button id="submit-button" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }
 
-export default Email;
+export default Custom;

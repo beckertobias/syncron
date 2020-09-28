@@ -13,33 +13,56 @@ html, body {
 
 body {
   background-image: url("https://i.pinimg.com/originals/41/10/f4/4110f4f95959876eaa010b18fd448733.jpg");
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .app-container {
   margin-top: 7%;
   margin-left: 7%;
   margin-right: 7%;
+  border-radius: 10px;
   background-color: white;
+}
+
+h2 {
+  font-family: "Verdana", sans-serif;
+  font-weight: bold;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 0 0.5px 0.5px grey;
-  border-radius: 0.1px;
+  align-items: center;
+  height: 40px;
 }
 .nav * {
-  padding-left: 2%;
-  padding-right: 2%;
+  margin: 1%;
+}
+.nav img {
+  width: 33px;
+  height: 25px;
+}
+.nav h1 {
+  font-family: "Verdana", sans-serif;
+  font-weight: bold;
+}
+.nav button {
+  background-color: #FAFBFF;
+  border-radius: 5px;
+  padding: 3%;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.19), 0 1px 1px rgba(0, 0, 0, 0.23);
+  font-family: "Fira Sans", sans-serif;
+  cursor: pointer;
 }
 
 .overview-container {
   background-color: #F4F7FC;
   padding: 5%;
-}
-.overview-container h1 {
-  font-family: "Merriweather", serif;
-  font-weight: bold;
+  border-radius: 10px;
 }
 
 .job-item-container {
@@ -67,8 +90,9 @@ body {
   background-color: #FAFBFF;
   margin: 0;
   padding: 2% 1%;
-  font-family: "Merriweather", serif;
+  font-family: "Verdana", sans-serif;
   border-bottom: 2px solid #F7F6FA;
+  border-radius: 5px;
 }
 
 #trash-btn {
@@ -82,10 +106,53 @@ body {
   color: red;
 }
 
+#job-item-header-text {
+  font-weight: bold;
+}
+
 .execution-time {
   line-height: 1.5rem;
   padding: 2% 1%;
   font-family: "Fira Sans", sans-serif;
+}
+
+.time-picker {
+  margin-top: 3%;
+}
+
+.create-job-inputs {
+  background-color: #F4F7FC;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.job-type-inputs {
+  margin-top: 3%;
+}
+.job-type-inputs * {
+  padding-top: 0.05%;
+  padding-bottom: 0.05%;
+}
+
+.time-picker-item-container {
+  margin-top: 1.5%;
+}
+
+.attachment-container {
+  margin-top: 1.5%;
+}
+.attachment-container h2 {
+  margin-bottom: 1.5%;
+}
+
+#submit-button {
+  background-color: #FAFBFF;
+  padding: 0.5%;
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.19), 0 1px 1px rgba(0, 0, 0, 0.23);
+  font-family: "Fira Sans", sans-serif;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=createJob.css.map */
