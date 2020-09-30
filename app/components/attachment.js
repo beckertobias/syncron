@@ -6,6 +6,7 @@ import {
   FormControlLabel,
   Radio,
 } from '@material-ui/core';
+
 const { ipcRenderer } = require('electron');
 
 function Attachment(props) {
@@ -31,7 +32,7 @@ function Attachment(props) {
           >
             Select file path
           </button>
-          <p>You Selected: {props.form.attachmentLocation}</p>
+          <p>{props.form.attachmentLocation}</p>
         </div>
       );
     } else {
@@ -50,16 +51,16 @@ function Attachment(props) {
             >
               Select script path
             </button>
-            <p>You Selected: {props.form.scriptLocation}</p>
+            <p>{props.form.scriptLocation}</p>
           </div>
           <div className="attachment-output">
             <button
               id="script-input"
               onClick={() => showFileDialog('outputLocation')}
             >
-              Select script path
+              Select output path
             </button>
-            <p>You Selected: {props.form.outputLocation}</p>
+            <p>{props.form.outputLocation}</p>
           </div>
         </div>
       );
@@ -98,8 +99,10 @@ function Attachment(props) {
           </RadioGroup>
         </FormControl>
       </div>
-      {showAttachmentForm()}
-      {showScriptForm()}
+      <div className="attachment-path-container">
+        {showAttachmentForm()}
+        {showScriptForm()}
+      </div>
     </div>
   );
 }
