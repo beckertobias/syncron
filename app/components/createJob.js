@@ -45,7 +45,7 @@ function CreateJob(props) {
           id="logo"
           src="https://www.iconfinder.com/data/icons/time-and-callander/32/2_refresh_sync_recycle_clock_time_alarm_watch-512.png"
         ></img>
-        <h1>CronWizard</h1>
+        <h1>Syncron</h1>
         <Link to="/">
           <button>Back to Task Overview</button>
         </Link>

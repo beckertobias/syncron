@@ -1,6 +1,6 @@
 {
-  "name": "cronwizard",
-  "productName": "cronwizard",
+  "name": "syncron",
+  "productName": "syncron",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "app/main.js",
