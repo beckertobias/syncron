@@ -13,7 +13,9 @@ Syncron is a Desktop Application that enables users to create and manage automat
 ### Motivation - general
 
 The motivation for this project was a task that I had to perform manually at work (at [Scalable Capital](https://de.scalable.capital/)). Scalable Capital offers digital wealth management platforms (Robo Advisor) as a white label solution to its partners, e.g. to European banks. I was working in the project management team for one these partners. 
+
 They wanted to run an incentive campaign and our task was to give them regular updates on how much money they have to pay as premiums to new and existing clients. I wrote a script in python that retrieves data from our SQL database and calculates the correct incentive premiums. On each Monday I had to run this script and then send an email to our external partners.
+
 Syncron automatises tasks like this. You can schedule a task that runs a script at a specific time and sends the output of that script via email to recipients that you define.
 
 ### Motivation - technical perspective
@@ -34,3 +36,4 @@ I wanted to create an application that not only programmers but also individuals
 * [SASS](https://sass-lang.com/)
 * [BASH](https://www.gnu.org/software/bash/)
 
+Link to presentation video: https://www.youtube.com/watch?v=jvoropt880M
